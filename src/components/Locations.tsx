@@ -3,27 +3,31 @@ import { LocationCard } from "./LocationCard";
 const locations = [
   {
     name: "Léo 2000",
-    address: "Léo 2000, Lomé",
+    address: "656G+GVR, Lomé, Togo",
     phone: "+228 92 92 82 07 / +228 92 92 81 48",
-    mapLink: "https://share.google/X1ArVqyaUoo9WNOeH"
+    mapLink: "https://share.google/79jy0rDx6CpcU8hbX",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.0899837459!2d1.2268!3d6.1614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMDknNDEuMCJOIDHCsDEzJzM2LjUiRQ!5e0!3m2!1sfr!2stg!4v1234567890"
   },
   {
     name: "Agoé Anomé",
-    address: "Agoé Anomé, Lomé",
+    address: "Agoé Anomé, Lomé, Togo",
     phone: "+228 91 82 00 00",
-    mapLink: "https://share.google/X1ArVqyaUoo9WNOeH"
+    mapLink: "https://share.google/xp00VRZaO5A9X8fZZ",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.5!2d1.25!3d6.15!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMDknMDAuMCJOIDHCsDE1JzAwLjAiRQ!5e0!3m2!1sfr!2stg!4v1234567890"
   },
   {
     name: "Klikamé",
-    address: "Klikamé, Lomé",
+    address: "Klikamé, Lomé, Togo",
     phone: "+228 91 33 00 00",
-    mapLink: "https://share.google/X1ArVqyaUoo9WNOeH"
+    mapLink: "https://share.google/r1FsvPkSHpulY8BjS",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.3!2d1.24!3d6.14!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMDgnMjQuMCJOIDHCsDE0JzI0LjAiRQ!5e0!3m2!1sfr!2stg!4v1234567890"
   },
   {
     name: "Soagbado",
-    address: "Soagbado, Lomé",
+    address: "Soagbado, Lomé, Togo",
     phone: "+228 72 14 01 60",
-    mapLink: "https://share.google/X1ArVqyaUoo9WNOeH"
+    mapLink: "https://share.google/X1ArVqyaUoo9WNOeH",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.2!2d1.23!3d6.16!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMDknMzYuMCJOIDHCsDEzJzQ4LjAiRQ!5e0!3m2!1sfr!2stg!4v1234567890"
   }
 ];
 
@@ -45,7 +49,7 @@ export const Locations = () => {
         </div>
 
         {/* Locations Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {locations.map((location, index) => (
             <LocationCard key={index} {...location} />
           ))}
