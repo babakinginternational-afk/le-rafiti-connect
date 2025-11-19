@@ -9,34 +9,34 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Le Rafiti Brand Colors - Luxury African Modern */
-    --background: 0 0% 6.7%; /* #111 Deep black */
+    --background: 0 0% 12%; /* Lighter elegant black */
     --foreground: 40 9% 96.5%; /* #F8F5F0 Off-white */
 
-    --card: 0 0% 10%;
+    --card: 0 0% 16%;
     --card-foreground: 40 9% 96.5%;
 
-    --popover: 0 0% 8%;
+    --popover: 0 0% 14%;
     --popover-foreground: 40 9% 96.5%;
 
     /* Gold as primary - luxury accent */
     --primary: 43 69% 47%; /* #C9A227 Warm gold */
-    --primary-foreground: 0 0% 6.7%;
+    --primary-foreground: 0 0% 12%;
 
-    --secondary: 0 0% 15%;
+    --secondary: 0 0% 18%;
     --secondary-foreground: 40 9% 96.5%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 40 5% 65%;
+    --muted: 0 0% 22%;
+    --muted-foreground: 40 5% 70%;
 
     --accent: 43 69% 47%; /* Gold accent */
-    --accent-foreground: 0 0% 6.7%;
+    --accent-foreground: 0 0% 12%;
 
     /* Red pepper accent for alerts/highlights */
     --destructive: 4 70% 50%; /* #D0342C Red pepper */
     --destructive-foreground: 40 9% 96.5%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 18%;
+    --border: 0 0% 24%;
+    --input: 0 0% 20%;
     --ring: 43 69% 47%;
 
     --radius: 0.75rem;
@@ -46,13 +46,13 @@ All colors MUST be HSL.
     --gold-light: 43 69% 60%;
     --gold-dark: 43 69% 35%;
     --pepper-red: 4 70% 50%;
-    --deep-black: 0 0% 6.7%;
+    --deep-black: 0 0% 12%;
     --off-white: 40 9% 96.5%;
 
     /* Gradients */
     --gradient-gold: linear-gradient(135deg, hsl(43 69% 47%), hsl(43 69% 60%));
-    --gradient-dark: linear-gradient(180deg, hsl(0 0% 8%), hsl(0 0% 6.7%));
-    --gradient-overlay: linear-gradient(0deg, hsl(0 0% 6.7% / 0.9), hsl(0 0% 6.7% / 0.3));
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 14%), hsl(0 0% 12%));
+    --gradient-overlay: linear-gradient(0deg, hsl(0 0% 12% / 0.9), hsl(0 0% 12% / 0.3));
 
     /* Shadows with gold glow */
     --shadow-gold: 0 4px 20px hsl(43 69% 47% / 0.25);
@@ -63,44 +63,44 @@ All colors MUST be HSL.
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.15s ease;
 
-    --sidebar-background: 0 0% 8%;
+    --sidebar-background: 0 0% 14%;
     --sidebar-foreground: 40 9% 96.5%;
     --sidebar-primary: 43 69% 47%;
-    --sidebar-primary-foreground: 0 0% 6.7%;
-    --sidebar-accent: 0 0% 15%;
+    --sidebar-primary-foreground: 0 0% 12%;
+    --sidebar-accent: 0 0% 18%;
     --sidebar-accent-foreground: 40 9% 96.5%;
-    --sidebar-border: 0 0% 20%;
+    --sidebar-border: 0 0% 24%;
     --sidebar-ring: 43 69% 47%;
   }
 
   .dark {
     /* Dark mode uses same luxury palette */
-    --background: 0 0% 6.7%;
+    --background: 0 0% 12%;
     --foreground: 40 9% 96.5%;
-    --card: 0 0% 10%;
+    --card: 0 0% 16%;
     --card-foreground: 40 9% 96.5%;
-    --popover: 0 0% 8%;
+    --popover: 0 0% 14%;
     --popover-foreground: 40 9% 96.5%;
     --primary: 43 69% 47%;
-    --primary-foreground: 0 0% 6.7%;
-    --secondary: 0 0% 15%;
+    --primary-foreground: 0 0% 12%;
+    --secondary: 0 0% 18%;
     --secondary-foreground: 40 9% 96.5%;
-    --muted: 0 0% 20%;
-    --muted-foreground: 40 5% 65%;
+    --muted: 0 0% 22%;
+    --muted-foreground: 40 5% 70%;
     --accent: 43 69% 47%;
-    --accent-foreground: 0 0% 6.7%;
+    --accent-foreground: 0 0% 12%;
     --destructive: 4 70% 50%;
     --destructive-foreground: 40 9% 96.5%;
-    --border: 0 0% 20%;
-    --input: 0 0% 18%;
+    --border: 0 0% 24%;
+    --input: 0 0% 20%;
     --ring: 43 69% 47%;
-    --sidebar-background: 0 0% 8%;
+    --sidebar-background: 0 0% 14%;
     --sidebar-foreground: 40 9% 96.5%;
     --sidebar-primary: 43 69% 47%;
-    --sidebar-primary-foreground: 0 0% 6.7%;
-    --sidebar-accent: 0 0% 15%;
+    --sidebar-primary-foreground: 0 0% 12%;
+    --sidebar-accent: 0 0% 18%;
     --sidebar-accent-foreground: 40 9% 96.5%;
-    --sidebar-border: 0 0% 20%;
+    --sidebar-border: 0 0% 24%;
     --sidebar-ring: 43 69% 47%;
   }
 }
