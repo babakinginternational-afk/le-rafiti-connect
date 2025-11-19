@@ -1,9 +1,10 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X, ShoppingCart, Phone } from "lucide-react";
+import { Menu, ShoppingCart, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 import logoRafiti from "@/assets/logo-rafiti.jpg";
 import { useCartStore } from "@/stores/cartStore";
+import { ThemeToggle } from "./ThemeToggle";
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -52,7 +53,8 @@ export const Header = () => {
           </nav>
 
           {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-2">
+            <ThemeToggle />
             <Link to="/panier">
               <Button variant="outline" size="icon" className="relative">
                 <ShoppingCart className="h-5 w-5" />
