@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { Menu, X, ShoppingCart, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoRafiti from "@/assets/logo-rafiti.jpg";
+import { useCartStore } from "@/stores/cartStore";
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const totalItems = useCartStore((state) => state.getTotalItems());
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -54,9 +56,11 @@ export const Header = () => {
             <Link to="/panier">
               <Button variant="outline" size="icon" className="relative">
                 <ShoppingCart className="h-5 w-5" />
-                <span className="absolute -top-1 -right-1 bg-gold text-background text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                  0
-                </span>
+                {totalItems > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-gold text-background text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold animate-scale-in">
+                    {totalItems}
+                  </span>
+                )}
               </Button>
             </Link>
             <Link to="/commander">
@@ -109,9 +113,9 @@ export const Header = () => {
               </a>
               <div className="flex gap-4 pt-4">
                 <Link to="/panier" className="flex-1">
-                  <Button variant="outline" className="w-full">
+                  <Button variant="outline" className="w-full relative">
                     <ShoppingCart className="h-5 w-5 mr-2" />
-                    Panier
+                    Panier {totalItems > 0 && `(${totalItems})`}
                   </Button>
                 </Link>
                 <Link to="/commander" className="flex-1">

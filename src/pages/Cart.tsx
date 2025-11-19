@@ -4,10 +4,26 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ShoppingBag, Trash2, Plus, Minus } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useCartStore } from "@/stores/cartStore";
+import { toast } from "sonner";
 
 const Cart = () => {
-  // Placeholder for cart items - will be managed with state management later
-  const cartItems: any[] = [];
+  const { items, removeItem, updateQuantity, getSubtotal, clearCart } = useCartStore();
+  const subtotal = getSubtotal();
+  const deliveryFee: number = 0; // À calculer en fonction de l'adresse plus tard
+  const total = subtotal + deliveryFee;
+
+  const handleRemoveItem = (id: string, name: string) => {
+    removeItem(id);
+    toast.success(`${name} retiré du panier`);
+  };
+
+  const handleQuantityChange = (id: string, currentQty: number, change: number) => {
+    const newQty = currentQty + change;
+    if (newQty > 0) {
+      updateQuantity(id, newQty);
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -22,14 +38,14 @@ const Cart = () => {
                   Votre Panier
                 </h1>
                 <p className="text-muted-foreground">
-                  {cartItems.length === 0 
+                  {items.length === 0 
                     ? "Votre panier est vide" 
-                    : `${cartItems.length} article${cartItems.length > 1 ? 's' : ''} dans votre panier`
+                    : `${items.length} article${items.length > 1 ? 's' : ''} dans votre panier`
                   }
                 </p>
               </div>
 
-              {cartItems.length === 0 ? (
+              {items.length === 0 ? (
                 /* Empty State */
                 <Card className="p-12 text-center border-border bg-card">
                   <div className="max-w-sm mx-auto">
@@ -57,33 +73,87 @@ const Cart = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                   {/* Cart Items */}
                   <div className="lg:col-span-2 space-y-4">
-                    {/* Placeholder for cart items mapping */}
-                    <Card className="p-4 border-border bg-card">
-                      <div className="flex gap-4">
-                        <div className="w-24 h-24 bg-muted rounded-lg flex-shrink-0"></div>
-                        <div className="flex-1">
-                          <h3 className="font-serif text-lg font-semibold mb-1">Item Name</h3>
-                          <p className="text-sm text-muted-foreground mb-3">Description</p>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-3">
-                              <Button size="sm" variant="outline">
-                                <Minus className="h-3 w-3" />
-                              </Button>
-                              <span className="font-semibold">1</span>
-                              <Button size="sm" variant="outline">
-                                <Plus className="h-3 w-3" />
+                    {items.map((item) => (
+                      <Card key={item.id} className="p-4 border-border bg-card hover:shadow-gold transition-all duration-300">
+                        <div className="flex gap-4">
+                          {/* Image */}
+                          <div className="w-24 h-24 bg-muted rounded-lg flex-shrink-0 overflow-hidden">
+                            <img 
+                              src={item.image} 
+                              alt={item.name}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          
+                          {/* Details */}
+                          <div className="flex-1 min-w-0">
+                            <h3 className="font-serif text-lg font-semibold mb-1 truncate">
+                              {item.name}
+                            </h3>
+                            <p className="text-sm text-muted-foreground mb-3">
+                              {item.category}
+                            </p>
+                            <div className="flex items-center justify-between">
+                              {/* Quantity Controls */}
+                              <div className="flex items-center gap-3">
+                                <Button 
+                                  size="sm" 
+                                  variant="outline"
+                                  onClick={() => handleQuantityChange(item.id, item.quantity, -1)}
+                                  className="h-8 w-8 p-0"
+                                >
+                                  <Minus className="h-3 w-3" />
+                                </Button>
+                                <span className="font-semibold text-lg min-w-[2rem] text-center">
+                                  {item.quantity}
+                                </span>
+                                <Button 
+                                  size="sm" 
+                                  variant="outline"
+                                  onClick={() => handleQuantityChange(item.id, item.quantity, 1)}
+                                  className="h-8 w-8 p-0"
+                                >
+                                  <Plus className="h-3 w-3" />
+                                </Button>
+                              </div>
+                              
+                              {/* Remove Button */}
+                              <Button 
+                                size="sm" 
+                                variant="ghost" 
+                                className="text-destructive hover:text-destructive hover:bg-destructive/10"
+                                onClick={() => handleRemoveItem(item.id, item.name)}
+                              >
+                                <Trash2 className="h-4 w-4" />
                               </Button>
                             </div>
-                            <Button size="sm" variant="ghost" className="text-destructive">
-                              <Trash2 className="h-4 w-4" />
-                            </Button>
+                          </div>
+                          
+                          {/* Price */}
+                          <div className="text-right flex-shrink-0">
+                            <p className="font-bold text-lg text-gold">
+                              {(item.price * item.quantity).toLocaleString('fr-FR')} FCFA
+                            </p>
+                            <p className="text-xs text-muted-foreground mt-1">
+                              {item.price.toLocaleString('fr-FR')} FCFA/unité
+                            </p>
                           </div>
                         </div>
-                        <div className="text-right">
-                          <p className="font-bold text-lg text-gold">3 500 FCFA</p>
-                        </div>
-                      </div>
-                    </Card>
+                      </Card>
+                    ))}
+
+                    {/* Clear Cart Button */}
+                    <Button
+                      variant="outline"
+                      className="w-full border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground"
+                      onClick={() => {
+                        clearCart();
+                        toast.success("Panier vidé");
+                      }}
+                    >
+                      <Trash2 className="h-4 w-4 mr-2" />
+                      Vider le panier
+                    </Button>
                   </div>
 
                   {/* Order Summary */}
@@ -93,25 +163,40 @@ const Cart = () => {
                       <div className="space-y-3 mb-6">
                         <div className="flex justify-between text-sm">
                           <span className="text-muted-foreground">Sous-total</span>
-                          <span className="font-semibold">0 FCFA</span>
+                          <span className="font-semibold">{subtotal.toLocaleString('fr-FR')} FCFA</span>
                         </div>
                         <div className="flex justify-between text-sm">
                           <span className="text-muted-foreground">Frais de livraison</span>
-                          <span className="font-semibold">0 FCFA</span>
+                          <span className="font-semibold">
+                            {deliveryFee === 0 ? "À calculer" : `${deliveryFee.toLocaleString('fr-FR')} FCFA`}
+                          </span>
                         </div>
                         <div className="border-t border-border pt-3">
                           <div className="flex justify-between">
                             <span className="font-semibold">Total</span>
-                            <span className="font-bold text-xl text-gold">0 FCFA</span>
+                            <span className="font-bold text-xl text-gold">
+                              {total.toLocaleString('fr-FR')} FCFA
+                            </span>
                           </div>
                         </div>
                       </div>
-                      <Button 
-                        className="w-full bg-gold hover:bg-gold-dark text-background font-semibold shadow-gold"
-                        size="lg"
-                      >
-                        Passer la commande
-                      </Button>
+                      <Link to="/commander">
+                        <Button 
+                          className="w-full bg-gold hover:bg-gold-dark text-background font-semibold shadow-gold"
+                          size="lg"
+                        >
+                          Passer la commande
+                        </Button>
+                      </Link>
+                      <Link to="/menu">
+                        <Button 
+                          variant="outline"
+                          className="w-full mt-3"
+                          size="lg"
+                        >
+                          Continuer mes achats
+                        </Button>
+                      </Link>
                     </Card>
                   </div>
                 </div>
