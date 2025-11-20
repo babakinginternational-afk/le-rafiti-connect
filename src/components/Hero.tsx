@@ -45,6 +45,15 @@ export const Hero = () => {
                 Commander en ligne
               </Button>
             </Link>
+            <Link to="/reservation">
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="border-gold text-gold hover:bg-gold hover:text-background font-bold text-lg px-8 py-6 transition-smooth"
+              >
+                Réserver une table
+              </Button>
+            </Link>
             <Link to="/menu">
               <Button 
                 size="lg" 
