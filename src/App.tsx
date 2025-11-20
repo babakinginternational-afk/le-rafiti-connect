@@ -8,6 +8,7 @@ import Menu from "./pages/Menu";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Emplacements from "./pages/Emplacements";
+import Reservation from "./pages/Reservation";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/panier" element={<Cart />} />
           <Route path="/commander" element={<Checkout />} />
           <Route path="/emplacements" element={<Emplacements />} />
+          <Route path="/reservation" element={<Reservation />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
