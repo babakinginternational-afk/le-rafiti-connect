@@ -1,25 +1,26 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { LocationCard } from "@/components/LocationCard";
+import { FloatingActionButtons } from "@/components/FloatingActionButtons";
 
 const locations = [
   {
     name: "Léo 2000",
     address: "Léo 2000, Lomé",
     phone: "+228 92 92 82 07",
-    mapLink: "https://share.google/X1ArVqyaUoo9WNOeH"
+    mapLink: "https://maps.app.goo.gl/gAE5hqMQCAxLXRsB9"
   },
   {
     name: "Agoé Anomé",
     address: "Agoé Anomé, Lomé",
     phone: "+228 91 82 00 00",
-    mapLink: "https://share.google/X1ArVqyaUoo9WNOeH"
+    mapLink: "https://maps.app.goo.gl/fkTAGza9PTZsqESp6"
   },
   {
     name: "Klikamé",
     address: "Klikamé, Lomé",
     phone: "+228 91 33 00 00",
-    mapLink: "https://share.google/X1ArVqyaUoo9WNOeH"
+    mapLink: "https://maps.app.goo.gl/UvThGco23cGBKxzb9"
   },
   {
     name: "Soagbado",
@@ -88,6 +89,7 @@ const Emplacements = () => {
         </section>
       </main>
       <Footer />
+      <FloatingActionButtons />
     </div>
   );
 };

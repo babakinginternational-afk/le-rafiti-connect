@@ -5,21 +5,21 @@ const locations = [
     name: "Léo 2000",
     address: "656G+GVR, Lomé, Togo",
     phone: "+228 92 92 82 07 / +228 92 92 81 48",
-    mapLink: "https://share.google/79jy0rDx6CpcU8hbX",
+    mapLink: "https://maps.app.goo.gl/gAE5hqMQCAxLXRsB9",
     embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.0899837459!2d1.2268!3d6.1614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMDknNDEuMCJOIDHCsDEzJzM2LjUiRQ!5e0!3m2!1sfr!2stg!4v1234567890"
   },
   {
     name: "Agoé Anomé",
     address: "Agoé Anomé, Lomé, Togo",
     phone: "+228 91 82 00 00",
-    mapLink: "https://share.google/xp00VRZaO5A9X8fZZ",
+    mapLink: "https://maps.app.goo.gl/fkTAGza9PTZsqESp6",
     embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.5!2d1.25!3d6.15!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMDknMDAuMCJOIDHCsDE1JzAwLjAiRQ!5e0!3m2!1sfr!2stg!4v1234567890"
   },
   {
     name: "Klikamé",
     address: "Klikamé, Lomé, Togo",
     phone: "+228 91 33 00 00",
-    mapLink: "https://share.google/r1FsvPkSHpulY8BjS",
+    mapLink: "https://maps.app.goo.gl/UvThGco23cGBKxzb9",
     embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.3!2d1.24!3d6.14!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMDgnMjQuMCJOIDHCsDE0JzI0LjAiRQ!5e0!3m2!1sfr!2stg!4v1234567890"
   },
   {
