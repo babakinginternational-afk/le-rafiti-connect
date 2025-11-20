@@ -9,6 +9,7 @@ export function ThemeProvider({
   attribute?: "class" | "data-theme";
   defaultTheme?: string;
   enableSystem?: boolean;
+  storageKey?: string;
 }) {
   return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
 }

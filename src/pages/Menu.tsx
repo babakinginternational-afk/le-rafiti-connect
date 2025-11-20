@@ -8,6 +8,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Plus, Flame, Leaf } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
+import { FloatingActionButtons } from "@/components/FloatingActionButtons";
 
 // Import images
 import burgerImage from "@/assets/food-burger-platter.jpg";
@@ -278,6 +279,7 @@ const Menu = () => {
         </div>
       </main>
       <Footer />
+      <FloatingActionButtons />
     </div>
   );
 };

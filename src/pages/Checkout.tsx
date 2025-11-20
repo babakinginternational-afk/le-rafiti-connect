@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import { LocationPicker } from "@/components/LocationPicker";
+import { FloatingActionButtons } from "@/components/FloatingActionButtons";
 import { useCartStore } from "@/stores/cartStore";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
@@ -257,6 +258,7 @@ const Checkout = () => {
         </section>
       </main>
       <Footer />
+      <FloatingActionButtons />
     </div>
   );
 };

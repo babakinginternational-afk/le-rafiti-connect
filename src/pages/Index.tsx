@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { MenuPreview } from "@/components/MenuPreview";
 import { Locations } from "@/components/Locations";
 import { Footer } from "@/components/Footer";
+import { FloatingActionButtons } from "@/components/FloatingActionButtons";
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
         <Locations />
       </main>
       <Footer />
+      <FloatingActionButtons />
     </div>
   );
 };
