@@ -27,19 +27,31 @@ const Cart = () => {
   };
 
   const handleWhatsAppOrder = () => {
+    if (items.length === 0) {
+      toast.error("Votre panier est vide");
+      return;
+    }
+
     // Créer le récapitulatif de commande
-    let message = "🍽️ *COMMANDE LE RAFITI*\n\n";
-    message += "📋 *Détails de ma commande:*\n\n";
+    let message = "🍽️ *NOUVELLE COMMANDE - LE RAFITI*\n\n";
+    message += "━━━━━━━━━━━━━━━━━━━━\n\n";
+    message += "📋 *DÉTAILS DE LA COMMANDE*\n\n";
     
     items.forEach((item, index) => {
       message += `${index + 1}. *${item.name}*\n`;
-      message += `   Quantité: ${item.quantity}\n`;
-      message += `   Prix unitaire: ${item.price.toLocaleString('fr-FR')} FCFA\n`;
-      message += `   Sous-total: ${(item.price * item.quantity).toLocaleString('fr-FR')} FCFA\n\n`;
+      message += `   • Quantité: ${item.quantity}\n`;
+      message += `   • Prix unitaire: ${item.price.toLocaleString('fr-FR')} FCFA\n`;
+      message += `   • Sous-total: ${(item.price * item.quantity).toLocaleString('fr-FR')} FCFA\n\n`;
     });
     
+    message += "━━━━━━━━━━━━━━━━━━━━\n\n";
+    message += `📊 *RÉSUMÉ*\n`;
+    message += `Sous-total: ${subtotal.toLocaleString('fr-FR')} FCFA\n`;
+    message += `Frais de livraison: ${deliveryFee === 0 ? 'À calculer' : deliveryFee.toLocaleString('fr-FR') + ' FCFA'}\n\n`;
     message += `💰 *TOTAL: ${total.toLocaleString('fr-FR')} FCFA*\n\n`;
-    message += "Je souhaite passer cette commande. Merci!";
+    message += "━━━━━━━━━━━━━━━━━━━━\n\n";
+    message += "✅ Je souhaite confirmer cette commande.\n";
+    message += "📞 Merci de me contacter pour finaliser les détails.";
     
     // Encoder le message pour l'URL
     const encodedMessage = encodeURIComponent(message);
@@ -47,6 +59,7 @@ const Cart = () => {
     
     // Ouvrir WhatsApp
     window.open(whatsappUrl, '_blank');
+    toast.success("Redirection vers WhatsApp...");
   };
 
   return (
