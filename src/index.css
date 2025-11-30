@@ -8,8 +8,8 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Le Rafiti Brand Colors - Luxury African Modern */
-    --background: 0 0% 12%; /* Lighter elegant black */
+    /* Le Rafiti Brand Colors - Luxury African Modern - Dark Mode (défaut) */
+    --background: 0 0% 12%; /* Elegant black */
     --foreground: 40 9% 96.5%; /* #F8F5F0 Off-white */
 
     --card: 0 0% 16%;
@@ -73,8 +73,49 @@ All colors MUST be HSL.
     --sidebar-ring: 43 69% 47%;
   }
 
+  .light {
+    /* Light mode - Elegant and refined */
+    --background: 40 9% 96.5%; /* Off-white background */
+    --foreground: 0 0% 12%; /* Dark text */
+
+    --card: 0 0% 100%; /* Pure white cards */
+    --card-foreground: 0 0% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 12%;
+
+    /* Gold remains primary */
+    --primary: 43 69% 47%;
+    --primary-foreground: 40 9% 96.5%;
+
+    --secondary: 40 5% 90%; /* Light gray */
+    --secondary-foreground: 0 0% 12%;
+
+    --muted: 40 5% 88%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 43 69% 47%;
+    --accent-foreground: 40 9% 96.5%;
+
+    --destructive: 4 70% 50%;
+    --destructive-foreground: 40 9% 96.5%;
+
+    --border: 0 0% 85%;
+    --input: 0 0% 90%;
+    --ring: 43 69% 47%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 12%;
+    --sidebar-primary: 43 69% 47%;
+    --sidebar-primary-foreground: 40 9% 96.5%;
+    --sidebar-accent: 40 5% 90%;
+    --sidebar-accent-foreground: 0 0% 12%;
+    --sidebar-border: 0 0% 85%;
+    --sidebar-ring: 43 69% 47%;
+  }
+
   .dark {
-    /* Dark mode uses same luxury palette */
+    /* Dark mode - Same as root */
     --background: 0 0% 12%;
     --foreground: 40 9% 96.5%;
     --card: 0 0% 16%;

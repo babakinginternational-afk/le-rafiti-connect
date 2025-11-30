@@ -2,10 +2,11 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ShoppingBag, Trash2, Plus, Minus } from "lucide-react";
+import { ShoppingBag, Trash2, Plus, Minus, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
+import { FloatingActionButtons } from "@/components/FloatingActionButtons";
 
 const Cart = () => {
   const { items, removeItem, updateQuantity, getSubtotal, clearCart } = useCartStore();
@@ -23,6 +24,29 @@ const Cart = () => {
     if (newQty > 0) {
       updateQuantity(id, newQty);
     }
+  };
+
+  const handleWhatsAppOrder = () => {
+    // Créer le récapitulatif de commande
+    let message = "🍽️ *COMMANDE LE RAFITI*\n\n";
+    message += "📋 *Détails de ma commande:*\n\n";
+    
+    items.forEach((item, index) => {
+      message += `${index + 1}. *${item.name}*\n`;
+      message += `   Quantité: ${item.quantity}\n`;
+      message += `   Prix unitaire: ${item.price.toLocaleString('fr-FR')} FCFA\n`;
+      message += `   Sous-total: ${(item.price * item.quantity).toLocaleString('fr-FR')} FCFA\n\n`;
+    });
+    
+    message += `💰 *TOTAL: ${total.toLocaleString('fr-FR')} FCFA*\n\n`;
+    message += "Je souhaite passer cette commande. Merci!";
+    
+    // Encoder le message pour l'URL
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/22892928207?text=${encodedMessage}`;
+    
+    // Ouvrir WhatsApp
+    window.open(whatsappUrl, '_blank');
   };
 
   return (
@@ -188,6 +212,14 @@ const Cart = () => {
                           Passer la commande
                         </Button>
                       </Link>
+                      <Button 
+                        onClick={handleWhatsAppOrder}
+                        className="w-full mt-3 bg-[#25D366] hover:bg-[#20BA5A] text-white font-semibold"
+                        size="lg"
+                      >
+                        <MessageCircle className="h-5 w-5 mr-2" />
+                        Commander par WhatsApp
+                      </Button>
                       <Link to="/menu">
                         <Button 
                           variant="outline"
@@ -206,6 +238,7 @@ const Cart = () => {
         </section>
       </main>
       <Footer />
+      <FloatingActionButtons />
     </div>
   );
 };
