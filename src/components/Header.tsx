@@ -43,6 +43,12 @@ export const Header = () => {
             >
               Emplacements
             </Link>
+            <Link 
+              to="/blog" 
+              className="text-foreground hover:text-gold transition-smooth font-medium"
+            >
+              Actualités
+            </Link>
             <a 
               href="tel:+22892928207" 
               className="text-foreground hover:text-gold transition-smooth font-medium flex items-center gap-2"
@@ -105,6 +111,13 @@ export const Header = () => {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Emplacements
+              </Link>
+              <Link 
+                to="/blog" 
+                className="text-foreground hover:text-gold transition-smooth font-medium py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Actualités
               </Link>
               <a 
                 href="tel:+22892928207" 
