@@ -44,6 +44,11 @@ export const Footer = () => {
                   Emplacements
                 </Link>
               </li>
+              <li>
+                <Link to="/blog" className="text-muted-foreground hover:text-gold transition-smooth">
+                  Actualités
+                </Link>
+              </li>
             </ul>
           </div>
 
